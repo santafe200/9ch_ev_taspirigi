@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9Ç — Ev tapşırıqları</title>
+<style>
+:root{--bg:#f3f5fb;--card:#fff;--ink:#172033;--muted:#68738a;--line:#e5e9f2;--blue:#365cf5;--blue2:#eaf0ff;--green:#13845b;--red:#c13b4a;--shadow:0 10px 30px #24365b0d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink)}
+header{background:linear-gradient(120deg,#243fc7,#5277ff);color:white;padding:26px 20px 52px}
+.top{max-width:1100px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center}.brand{display:flex;align-items:center;gap:13px}.logo{width:48px;height:48px;border-radius:15px;background:#ffffff25;display:grid;place-items:center;font-size:25px}.brand h1{font-size:22px;margin:0}.brand p{margin:5px 0 0;color:#e0e7ff;font-size:13px}.date-pill{background:#ffffff22;padding:10px 14px;border-radius:12px;font-size:13px}
+main{max-width:1100px;margin:-30px auto 40px;padding:0 18px;position:relative}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}.stat,.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.stat{padding:18px 20px}.stat span{color:var(--muted);font-size:13px}.stat strong{display:block;font-size:28px;margin-top:7px}.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.panel{padding:21px}.panel h2{font-size:18px;margin:0 0 5px}.sub{font-size:13px;color:var(--muted);margin:0 0 18px}.day-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.day-tab{border:1px solid var(--line);background:#fff;color:var(--muted);padding:9px 12px;border-radius:10px;cursor:pointer;font-weight:650}.day-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}.lessons{display:grid;gap:8px}.lesson{display:grid;grid-template-columns:32px 1fr auto;align-items:center;gap:10px;border:1px solid var(--line);padding:10px 12px;border-radius:12px}.num{width:28px;height:28px;display:grid;place-items:center;border-radius:9px;background:#f0f2f8;color:#6a748b;font-size:12px;font-weight:700}.lesson-name{font-weight:650;font-size:14px}.lesson small{display:block;color:var(--muted);margin-top:3px;font-size:12px}.badge{font-size:11px;color:var(--muted);background:#f3f5f9;padding:5px 8px;border-radius:8px}.form{display:grid;gap:12px}.form label{font-size:12px;font-weight:700;color:#59657c;display:block;margin-bottom:6px}.form select,.form input,.form textarea{width:100%;border:1px solid #dfe4ef;border-radius:10px;padding:11px 12px;font:inherit;color:var(--ink);background:#fff;outline:none}.form select:focus,.form input:focus,.form textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #365cf51a}.form textarea{resize:vertical;min-height:86px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:0;border-radius:11px;padding:12px 15px;background:var(--blue);color:#fff;font-weight:750;cursor:pointer}.btn:hover{filter:brightness(.96)}.btn.secondary{background:var(--blue2);color:var(--blue)}.task-list{display:grid;gap:10px;margin-top:13px}.task{border:1px solid var(--line);border-radius:13px;padding:13px;display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:start}.task input[type=checkbox]{width:17px;height:17px;margin-top:3px;accent-color:var(--green);cursor:pointer}.task-title{font-weight:700;font-size:14px}.task-meta{font-size:12px;color:var(--muted);margin-top:5px}.task-note{font-size:13px;white-space:pre-wrap;margin-top:7px;line-height:1.45}.task.done .task-title{text-decoration:line-through;color:#8992a5}.task.done{background:#f8fbf9}.delete{border:0;background:#fff0f1;color:var(--red);border-radius:8px;padding:6px 8px;cursor:pointer}.empty{padding:22px;text-align:center;border:1px dashed #d7deeb;border-radius:12px;color:var(--muted);font-size:13px}.toolbar{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}.filter{border:1px solid var(--line);border-radius:9px;padding:8px;background:#fff;color:var(--muted)}.weekend{margin-top:18px;background:#f0f4ff;border:1px solid #dce5ff;border-radius:14px;padding:16px}.weekend h3{margin:0 0 6px;font-size:15px}.weekend p{font-size:13px;line-height:1.5;color:#53617d;margin:0 0 10px}.weekend strong{color:#2e4ed2}.foot{text-align:center;color:#8a93a7;font-size:12px;margin-top:20px}.hidden{display:none!important}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:14px}.stat strong{font-size:23px}.top{align-items:flex-start}.date-pill{display:none}}
+@media(max-width:420px){.stats{grid-template-columns:1fr}.row{grid-template-columns:1fr}.panel{padding:15px}}
+</style>
+</head>
+<body>
+<header><div class="top"><div class="brand"><div class="logo">📚</div><div><h1>9Ç · Ev tapşırıqları</h1><p>Dərslərini planla, tapşırıqlarını unutma.</p></div></div><div class="date-pill" id="todayLabel"></div></div></header>
+<main>
+  <section class="stats">
+    <div class="stat"><span>Ümumi tapşırıq</span><strong id="totalCount">0</strong></div>
+    <div class="stat"><span>Bitirilən</span><strong id="doneCount">0</strong></div>
+    <div class="stat"><span>Qalan</span><strong id="leftCount">0</strong></div>
+  </section>
+  <div class="layout">
+    <section class="panel">
+      <h2>📅 Dərs cədvəli</h2><p class="sub">Günü seç, həmin günün fənlərini gör.</p>
+      <div class="day-tabs" id="dayTabs"></div>
+      <div id="lessons" class="lessons"></div>
+      <div class="weekend"><h3>🗓️ Həftəsonu xülasəsi</h3><p>Şənbə və ya bazar günü bu saytı açanda həftə ərzində verilən ev tapşırıqlarının hamısını burada görə bilərsən.</p><div id="weekendSummary"></div><button class="btn secondary" style="margin-top:12px" id="showAllBtn">Bütün tapşırıqlara bax</button></div>
+    </section>
+    <section class="panel">
+      <h2>✍️ Tapşırıq əlavə et</h2><p class="sub">Müəllim ev tapşırığı verəndə fənni seçib qeyd et.</p>
+      <form id="taskForm" class="form">
+        <div class="row">
+          <div><label for="daySelect">Gün</label><select id="daySelect"></select></div>
+          <div><label for="subjectSelect">Fənn</label><select id="subjectSelect" required></select></div>
+        </div>
+        <div><label for="taskTitle">Nə etmək lazımdır?</label><input id="taskTitle" required maxlength="120" placeholder="Məs: Səhifə 35, tapşırıq 4–6"></div>
+        <div><label for="taskNote">Əlavə qeyd (istəyə görə)</label><textarea id="taskNote" maxlength="500" placeholder="Məs: dəftərə yazmaq, öyrənmək, təqdimat hazırlamaq..."></textarea></div>
+        <div class="row">
+          <div><label for="dueDate">Son tarix</label><input id="dueDate" type="date"></div>
+          <div><label for="priority">Vaciblik</label><select id="priority"><option>Normal</option><option>Vacib</option></select></div>
+        </div>
+        <button class="btn" type="submit">＋ Tapşırığı yadda saxla</button>
+      </form>
+      <hr style="border:0;border-top:1px solid var(--line);margin:22px 0">
+      <div class="toolbar"><div><h2>📝 Ev tapşırıqlarım</h2><p class="sub" style="margin:5px 0 0">Qeyd etdiklərini tamamlandı kimi işarələ.</p></div><select class="filter" id="taskFilter"><option value="all">Hamısı</option><option value="open">Qalanlar</option><option value="done">Bitirilənlər</option></select></div>
+      <div id="taskList" class="task-list"></div>
+    </section>
+  </div>
+  <div class="foot">Məlumatlar bu brauzerdə yadda saxlanılır. Eyni cihaz və brauzerdə saytı yenidən açanda qalacaq.</div>
+</main>
+<script>
+const schedule = {
+  1:["Fizika","Azərb. dili","Riyaziyyat","Riyaziyyat","Kimya","Texnologiya","İngilis dili","İdman"],
+  2:["Azərb. tarixi","Riyaziyyat","İngilis dili","İnformatika","Fizika","Riyaziyyat","Kimya","İdman"],
+  3:["Coğrafiya","Biologiya","Musiqi","Azərb. dili","İngilis dili","Ümumi tarix","Ədəbiyyat"],
+  4:["Zəfər tarixi","İngilis dili","Riyaziyyat","Riyaziyyat","Fizika","Azərb. dili","İnformatika","İdman"],
+  5:["Riyaziyyat","Riyaziyyat","Azərb. tarixi","Fizika","Kimya","Təsviri inc.","Biologiya"]
+};
+const dayNames={1:"1-ci gün",2:"2-ci gün",3:"3-cü gün",4:"4-cü gün",5:"5-ci gün"};
+const key="9c_homework_v1";
+let tasks=[]; try{tasks=JSON.parse(localStorage.getItem(key)||"[]")}catch(e){tasks=[]}
+let activeDay=1;
+const $=id=>document.getElementById(id);
+const today=new Date(); const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+$("todayLabel").textContent=today.toLocaleDateString("az-AZ",{weekday:"long",day:"numeric",month:"long"});
+function save(){localStorage.setItem(key,JSON.stringify(tasks));renderTasks();renderStats();renderWeekend()}
+function dayOptions(){return Object.keys(schedule).map(n=>`<option value="${n}">${dayNames[n]}</option>`).join("")}
+$("daySelect").innerHTML=dayOptions();
+$("daySelect").value=String(Math.min(5,Math.max(1,Math.ceil((today.getDay()||7)-1))));
+function updateSubjects(){
+ const day=+$("daySelect").value; const subjects=schedule[day];
+ $("subjectSelect").innerHTML=subjects.map((s,i)=>`<option value="${s}">${s}${subjects.filter(x=>x===s).length>1?" — "+(subjects.slice(0,i+1).filter(x=>x===s).length)+"-ci dərs":""}</option>`).join("");
+}
+$("daySelect").addEventListener("change",updateSubjects); updateSubjects();
+function renderSchedule(){
+ $("dayTabs").innerHTML=Object.keys(schedule).map(n=>`<button class="day-tab ${+n===activeDay?"active":""}" data-day="${n}">${n}-ci gün</button>`).join("");
+ $("dayTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{activeDay=+b.dataset.day;renderSchedule()});
+ $("lessons").innerHTML=schedule[activeDay].map((s,i)=>`<div class="lesson"><span class="num">${i+1}</span><div><div class="lesson-name">${s}</div><small>${tasks.filter(t=>+t.day===activeDay&&t.subject===s&&!t.done).length} qalan tapşırıq</small></div><span class="badge">${tasks.filter(t=>+t.day===activeDay&&t.subject===s).length} tapşırıq</span></div>`).join("");
+}
+function renderTasks(){
+ const filter=$("taskFilter").value;
+ let shown=tasks.filter(t=>filter==="all"||(filter==="open"&&!t.done)||(filter==="done"&&t.done));
+ shown.sort((a,b)=>(a.done-b.done)||(String(a.due||"9999").localeCompare(String(b.due||"9999"))));
+ if(!shown.length){$("taskList").innerHTML='<div class="empty">Burada hələ tapşırıq yoxdur. Yuxarıdakı formadan əlavə edə bilərsən. 🙂</div>';return}
+ $("taskList").innerHTML=shown.map(t=>`<div class="task ${t.done?"done":""}"><input type="checkbox" aria-label="Tamamlandı" data-check="${t.id}" ${t.done?"checked":""}><div><div class="task-title">${esc(t.title)}</div><div class="task-meta">${dayNames[t.day]} · ${esc(t.subject)}${t.due?" · Son tarix: "+t.due:""}${t.priority==="Vacib"?" · 🔴 Vacib":""}</div>${t.note?`<div class="task-note">${esc(t.note)}</div>`:""}</div><button class="delete" data-delete="${t.id}" title="Sil">Sil</button></div>`).join("");
+ $("taskList").querySelectorAll("[data-check]").forEach(el=>el.onchange=()=>{let t=tasks.find(x=>x.id===el.dataset.check);if(t)t.done=el.checked;save();renderSchedule()});
+ $("taskList").querySelectorAll("[data-delete]").forEach(el=>el.onclick=()=>{if(confirm("Bu tapşırığı silmək istəyirsən?")){tasks=tasks.filter(t=>t.id!==el.dataset.delete);save();renderSchedule()}});
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function renderStats(){$("totalCount").textContent=tasks.length;$("doneCount").textContent=tasks.filter(t=>t.done).length;$("leftCount").textContent=tasks.filter(t=>!t.done).length}
+function renderWeekend(){
+ const now=new Date(); const day=now.getDay(); const monday=new Date(now); monday.setDate(now.getDate()-(day===0?6:day-1));monday.setHours(0,0,0,0);
+ const nextMonday=new Date(monday);nextMonday.setDate(monday.getDate()+7);
+ const week=tasks.filter(t=>{const d=t.created?new Date(t.created):new Date();return d>=monday&&d<nextMonday});
+ const remaining=week.filter(t=>!t.done).length;
+ $("weekendSummary").innerHTML=`<strong>${week.length}</strong> tapşırıq bu həftə qeyd edilib · <strong>${remaining}</strong> tapşırıq qalıb.`;
+}
+$("taskForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const day=+$("daySelect").value, subject=$("subjectSelect").value, title=$("taskTitle").value.trim();
+ if(!title)return;
+ tasks.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),day,subject,title,note:$("taskNote").value.trim(),due:$("dueDate").value,priority:$("priority").value,done:false,created:new Date().toISOString()});
+ save();renderSchedule();$("taskTitle").value="";$("taskNote").value="";$("dueDate").value="";
+});
+$("taskFilter").onchange=renderTasks;
+$("showAllBtn").onclick=()=>{$("taskFilter").value="all";renderTasks();document.querySelector(".toolbar").scrollIntoView({behavior:"smooth",block:"center"})};
+renderSchedule();renderTasks();renderStats();renderWeekend();
+</script>
+</body>
+</html>
